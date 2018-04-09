@@ -1,8 +1,8 @@
 # Monte-Carlo-Fugacity-ratios
 R code to calculate the air-water fugacity ratios of individual PCB congener from Indiana Harbor and Ship Canal from air and water passive samples collected in 2007
 
-# set working directory
-setwd("Z:/Andres Martinez/Research/ISRP/Project4/IHSC/R/Fugacity")
+# set working directory on your computer
+setwd("Z:/.../Fugacity")
 
 
 final.result = function(MW.PCB, H0.mean, H0.error, 
@@ -17,27 +17,27 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   for (replication in 1:1000)
   {
     
-    # random parameters
+  # random parameters
     
-    a <- rnorm(1, 0.085, 0.007)
-    b <- rnorm(1, 1, 0.5)
-    c <- rnorm(1, 32.7, 1.6)
-    H0 <- rnorm(1, H0.mean, H0.error) # should be normalized distribution
+  a <- rnorm(1, 0.085, 0.007)
+  b <- rnorm(1, 1, 0.5)
+  c <- rnorm(1, 32.7, 1.6)
+  H0 <- rnorm(1, H0.mean, H0.error) # should be normalized distribution
     
-    # Specific condition for each deployment
-    C.PCB.water <- rnorm(1, C.PCB.water.mean, C.PCB.water.error) #ng/L
-    C.PCB.air <- rnorm(1, C.PCB.air.mean, C.PCB.air.error) #ng/m3
-    T.water <- rnorm(1, T.water.mean, T.water.error) #C 
-    T.air <- rnorm(1, T.air.mean, T.air.error) #C
+  # Specific condition for each deployment
+  C.PCB.water <- rnorm(1, C.PCB.water.mean, C.PCB.water.error) #ng/L
+  C.PCB.air <- rnorm(1, C.PCB.air.mean, C.PCB.air.error) #ng/m3
+  T.water <- rnorm(1, T.water.mean, T.water.error) #C 
+  T.air <- rnorm(1, T.air.mean, T.air.error) #C
 
-    # computed values
+  # computed values
     
-    DeltaUaw <- (a*MW.PCB-b*nOrtho.Cl+c)*1000
-    K <- 10^(H0)*101325/(R*T)
-    K.air.water <- K*exp(-DeltaUaw/R*(1/(T.water+273.15)-1/T))
-    K.final <- K.air.water*(T.water+273.15)/(T.air+273.15) # no units
+  DeltaUaw <- (a*MW.PCB-b*nOrtho.Cl+c)*1000
+  K <- 10^(H0)*101325/(R*T)
+  K.air.water <- K*exp(-DeltaUaw/R*(1/(T.water+273.15)-1/T))
+  K.final <- K.air.water*(T.water+273.15)/(T.air+273.15) # no units
     
-    fug.ratio <- c(fug.ratio, (C.PCB.water*K.final)/(C.PCB.air/1000))
+  fug.ratio <- c(fug.ratio, (C.PCB.water*K.final)/(C.PCB.air/1000))
     
   }
   
@@ -49,6 +49,8 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   c(mmm, sss, q2.5, q97.5) # 95% confidence intervals
   }
   
+  # Chemical properties
+  
   pars <- read.csv("Variables/Variables congenerD8.csv")
   Congener <- pars$Congener
   MW.PCB <- pars$MW.PCB
@@ -59,6 +61,8 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   C.PCB.air.mean <- pars$C.PCB.air #ng/m3
   C.PCB.air.error <- pars$X.2 #20%
   nOrtho.Cl <- pars$nOrtho.Cl
+  
+  # Meteorolgical conditions
   
   parsM <- read.csv("Meteo_param.csv") #change number before braquets, for different deployment!
   T.air.mean <- parsM$D8[1]
