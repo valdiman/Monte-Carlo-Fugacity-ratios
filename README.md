@@ -66,7 +66,7 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   C.PCB.air.error <- pars$X.2 #20%
   nOrtho.Cl <- pars$nOrtho.Cl
   
-  ## Meteorolgical conditions
+  ## Meteorological and environmental conditions
   
   parsM <- read.csv("Meteo_param.csv") #change number before braquets, for different deployment!
   T.air.mean <- parsM$D8[1]
