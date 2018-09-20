@@ -33,7 +33,7 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   T.water <- rnorm(1, T.water.mean, T.water.error) #C 
   T.air <- rnorm(1, T.air.mean, T.air.error) #C
 
-  ## equations
+  ## Equations
     
   DeltaUaw <- (a*MW.PCB-b*nOrtho.Cl+c)*1000
   K <- 10^(H0)*101325/(R*T)
@@ -51,7 +51,7 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   
   c(mmm, sss, q2.5, q97.5) # 95% confidence intervals
 }
-  # Individual chemical properties and meteorological conditions
+  # Individual chemical properties, meteorological and environmental conditions
   
   ## Chemical properties (e.g., deployment 8)
   
