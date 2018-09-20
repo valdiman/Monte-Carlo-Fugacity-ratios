@@ -74,7 +74,7 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   T.water.mean <- parsM$D8[2]
   T.water.error <- parsM$X.8[2]
   
-  # Resutls
+  # Results
   
   Num.Congener <- length(Congener)
   
