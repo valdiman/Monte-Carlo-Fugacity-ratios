@@ -9,6 +9,7 @@ setwd("Z:/.../Fugacity")
 final.result = function(MW.PCB, H0.mean, H0.error, 
             C.PCB.water.mean, C.PCB.water.error, C.PCB.air.mean, C.PCB.air.error, nOrtho.Cl)
 {
+  
   ## fixed parameters
   
   R = 8.3144
@@ -53,9 +54,9 @@ final.result = function(MW.PCB, H0.mean, H0.error,
 }
   # Individual chemical properties, meteorological and environmental conditions
   
-  ## Chemical properties (e.g., deployment 8)
+  ## Chemical properties (e.g., deployment 1)
   
-  pars <- read.csv("Variables/Variables congenerD8.csv")
+  pars <- read.csv("Variables/Variables congenerD1.csv")
   Congener <- pars$Congener
   MW.PCB <- pars$MW.PCB
   H0.mean <- pars$H0
@@ -69,10 +70,10 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   ## Meteorological and environmental conditions
   
   parsM <- read.csv("Meteo_param.csv") #change number before braquets, for different deployment!
-  T.air.mean <- parsM$D8[1]
-  T.air.error <- parsM$X.8[1]
-  T.water.mean <- parsM$D8[2]
-  T.water.error <- parsM$X.8[2]
+  T.air.mean <- parsM$D1[1]
+  T.air.error <- parsM$X.1[1]
+  T.water.mean <- parsM$D1[2]
+  T.water.error <- parsM$X.1[2]
   
   # Results
   
@@ -88,7 +89,7 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   final.result = data.frame(Congener, result)
   names(final.result) = c("Congener", "Mean", "Std", "2.5%CL", "97.5%CL")
   
-  ## Example for deployment 8
-  write.csv(final.result, row.names=F, file="Results/Fugacity_ratioD8_2.csv")
+  ## Example for deployment 1
+  write.csv(final.result, row.names=F, file="Results/Fugacity_ratioD1.csv")
   
   
