@@ -92,4 +92,19 @@ final.result = function(MW.PCB, H0.mean, H0.error,
   ## Example for deployment 1
   write.csv(final.result, row.names=F, file="Results/Fugacity_ratioD1.csv")
   
+  # References:
+  # Paper
+  
+  Martinez, Awad, Herkert, Hornbuckle (2019) Determination of PCB fluxes from Indiana Harbor and Ship Canal using dual-deployed air and water passive samplers Environmental Pollution 244, 469-476, https://doi.org/10.1016/j.envpol.2018.10.048
+  
+  # Available data:
+  
+  Martinez, Andres; Awad, Andrew M; Herkert, Nicholas J; Hornbuckle, Keri C (2018): PCB congener data of gas-phase, freely-dissolved water, air-water fugacity ratios and air-water fluxes in Indiana Harbor and Ship Canal, IN, USA. PANGAEA, https://doi.org/10.1594/PANGAEA.894908
+  
+  
+
+  
+  
+  
+  
   
