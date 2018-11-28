@@ -1,5 +1,5 @@
 # Monte-Carlo-Fugacity-ratios
-R code to calculate the air-water fugacity ratios of individual PCB congener from Indiana Harbor and Ship Canal from air and water passive samples collected in 2007
+R code to calculate the air-water fugacity ratios of individual PCB congener from Indiana Harbor and Ship Canal from air and water passive samples collected in 2017
 
 # set working directory on your computer
 setwd("Z:/.../Fugacity")
