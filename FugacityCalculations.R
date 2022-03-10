@@ -1,5 +1,5 @@
 # Introduction ------------------------------------------------------------
-# This code describes the fugacity calculation for one only
+# This code describes the fugacity calculation for only one
 # deployment time.
 # Change should be done in section Read Pangaea datasets
 # for the others deployment times
